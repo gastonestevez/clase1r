@@ -1,15 +1,11 @@
-const Navbar = ({items}) => {
-    return <>
-        <ul>
-            {/* Operaciones con arrays */}
-            {/* Map Vs ForEach */}
-            {/* Filter, Find, Some */}
-            <li>{items[0]}</li>
-            <li>{items[1]}</li>
-            <li>{items[2]}</li>
-            <li>{items[3]}</li>
-        </ul>
-    </>
+const Navbar = ({ items }) => {
+    const renderItem = (nombre) => <li key={nombre} >{nombre}</li>
+
+    return (
+        <>
+            <ul>{items.map((item) => renderItem(item))}</ul>
+        </>
+    )
 }
 
 export default Navbar
