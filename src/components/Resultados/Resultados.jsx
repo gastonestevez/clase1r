@@ -2,8 +2,6 @@ import React, { Component } from "react"
 
 export default class Resultados extends Component {
 
-    
-
     componentDidMount(){
         console.log('LOS RESULTADOS ESTAN EN PANTALLA')
     }

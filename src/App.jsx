@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Contador from "./components/Contador/Contador"
 import { Component } from "react"
 import Resultados from "./components/Resultados/Resultados"
+import Clock from "./components/Clock/Clock"
 
 class App extends Component {
     menuItems = ["Home", "Marketplace", "Cart", "Login", "Register"]
@@ -12,6 +13,7 @@ class App extends Component {
         super(props)
         this.state = {
             items: [],
+            toggleClock: false,
         }
     }
 
@@ -24,10 +26,16 @@ class App extends Component {
         }
     }
 
+    toggleClock(){
+        this.setState({
+            toggleClock: !this.state.toggleClock
+        })
+    }
+
     render() {
         return (
             <>
-                <Navbar items={this.menuItems} />
+                {/* <Navbar items={this.menuItems} />
                 <Contador
                     valorInicial={25}
                     handleSubmitNumber={(contador) =>
@@ -37,7 +45,16 @@ class App extends Component {
 
                 {!!this.state.items.length && (
                     <Resultados items={this.state.items} />
-                )}
+                )} */}
+                <button onClick={() => this.toggleClock()}>
+                    {!this.state.toggleClock ? 'Turn ON' : 'Turn OFF'}
+                </button>
+                {
+                    this.state.toggleClock && (
+                        <Clock />
+                    )
+                }
+
             </>
         )
     }
